@@ -1,11 +1,29 @@
-#
-# For a description of the syntax of this configuration file,
-# see Documentation/kbuild/kconfig-language.txt.
-#
-mainmenu "Linux/$ARCH $KERNELVERSION Kernel Configuration"
+# KVM common configuration items and defaults
 
-config SRCARCH
-	string
-	option env="SRCARCH"
+config HAVE_KVM
+       bool
 
-source "arch/$SRCARCH/Kconfig"
+config HAVE_KVM_IRQCHIP
+       bool
+
+config HAVE_KVM_IRQ_ROUTING
+       bool
+
+config HAVE_KVM_EVENTFD
+       bool
+       select EVENTFD
+
+config KVM_APIC_ARCHITECTURE
+       bool
+
+config KVM_MMIO
+       bool
+
+config KVM_ASYNC_PF
+       bool
+
+config HAVE_KVM_MSI
+       bool
+
+config HAVE_KVM_CPU_RELAX_INTERCEPT
+       bool
